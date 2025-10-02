@@ -1,11 +1,64 @@
 
-  # Currency Merge Puzzle Game
+# 환율왕: 코인 머지 (React + HTML5)
 
-  This is a code bundle for Currency Merge Puzzle Game. The original project is available at https://www.figma.com/design/NqckQC7iARNTn71mKEYD9F/Currency-Merge-Puzzle-Game.
+동일한 게임 규칙을 가진 두 가지 실행 방식이 포함되어 있습니다.
+- React(Vite) 버전: `src/` 기반 UI/애니메이션
+- 순수 HTML/CSS/JS 버전: `html5/` 아래 정적 실행
 
-  ## Running the code
+원본 디자인 참고: https://www.figma.com/design/NqckQC7iARNTn71mKEYD9F/Currency-Merge-Puzzle-Game
 
-  Run `npm i` to install the dependencies.
+## 실행 방법
 
-  Run `npm run dev` to start the development server.
+1) 의존성 설치
+
+```bash
+npm i
+```
+
+2) React 개발 서버 (포트 5173)
+
+```bash
+npm run dev
+# http://localhost:5173
+```
+
+3) HTML5 정적 서버 (포트 5174)
+
+```bash
+npm run dev:html
+# http://localhost:5174
+```
+
+## 게임 규칙 요약
+
+- 같은 통화, 같은 금액의 코인을 인접시키면 합쳐집니다.
+- 한 턴이 끝날 때마다 새 코인 2개가 스폰됩니다.
+- 스왑: 코인을 선택 후 다른 코인을 클릭하면 두 코인이 자리 교체됩니다.
+- 환전권: 버튼으로 환전 모드를 토글하고, 코인을 클릭해 임의의 다른 통화로 변환합니다(초기 3개, 10번 합치면 +1).
+- 이벤트: 주기적으로 통화 보너스/스폰 확률에 영향을 주는 이벤트가 발생합니다.
+- 게임오버: 빈 칸이 없고, 인접한 같은 코인 쌍이 하나도 없을 때.
+
+### 머지 우선순위/방향
+- 스캔 순서: 아래→위, 오른쪽→왼쪽
+- 이웃 검사: 아래→오른쪽→위→왼쪽
+- 합쳐질 때 배치 방향: 위/아래로 합치면 결과 코인은 위칸으로, 좌/우로 합치면 결과 코인은 왼쪽 칸으로 배치됩니다.
+
+## 폴더 구조
+
+- `src/` React 버전 소스
+- `html5/` 순수 HTML/CSS/JS 버전 (`index.html`, `styles.css`, `game.js`)
+
+## 빌드
+
+React 버전 빌드:
+
+```bash
+npm run build
+```
+
+HTML5 버전은 정적 파일이므로 별도 빌드 없이 `html5/` 폴더를 배포하면 됩니다.
+
+## 라이선스 / 크레딧
+- 디자인: 상기 Figma 링크 참고
+- 아이콘/컴포넌트: 프로젝트 내 각 파일 헤더 및 라이브러리 라이선스에 따름
   
