@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>환율왕: 코인 머지 (HTML5)</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <h1>환율왕: 코인 머지</h1>
+        <div class="controls">
+          <button id="exchangeBtn">환전 사용</button>
+          <button id="resetBtn">새 게임</button>
+        </div>
+      </header>
+
+      <section class="stats">
+        <div class="stat">
+          <div class="label">점수</div>
+          <div id="score" class="value">0</div>
+        </div>
+        <div class="stat">
+          <div class="label">환전권</div>
+          <div id="tokens" class="value">3</div>
+        </div>
+      </section>
+
+      <section id="eventBanner" class="event event--idle">
+        <div class="event__left">
+          <div id="eventName">환율 이벤트 대기 중...</div>
+          <div id="eventDesc" class="muted"></div>
+        </div>
+        <div class="event__right">
+          <span id="timeLeft">0</span>초
+        </div>
+      </section>
+
+      <section id="exchangeMode" class="exchange hidden">
+        🔄 환전 모드: 변환할 코인을 선택하세요
+      </section>
+
+      <section class="board-wrap">
+        <div id="board" class="board" aria-label="game-board"></div>
+      </section>
+
+      <section class="legend">
+        <div class="legend__item"><span class="dot dot--krw"></span>₩ 원화</div>
+        <div class="legend__item"><span class="dot dot--usd"></span>$ 달러</div>
+        <div class="legend__item"><span class="dot dot--jpy"></span>¥ 엔화</div>
+      </section>
+    </main>
+
+    <div id="gameOver" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal__content">
+        <h2>게임 종료</h2>
+        <p class="muted">최종 점수</p>
+        <p id="finalScore" class="big"></p>
+        <div id="coupon" class="coupon"></div>
+        <button id="restartBtn" class="primary">다시 시작</button>
+      </div>
+    </div>
+
+    <script src="./game.js"></script>
+  </body>
+  </html>
+
+
